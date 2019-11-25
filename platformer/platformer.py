@@ -5,26 +5,25 @@ pygame.init()
 
 koko = (1280, 720)
 naytto = pygame.display.set_mode(koko)
-
+tausta = pygame.image.load("tausta.png")
 pelaaja = pelaajaluokka.Pelaaja()
 
 while True:
-    naytto.fill([0,0,0])
-    pelaaja.piirra(naytto)
-
     # Tämä pätkä tarkistaa tapahtumia
     tapahtumat = pygame.event.get()
     for tapahtuma in tapahtumat:
         if tapahtuma.type == pygame.QUIT:  # Jos ruksia painettiin
             sys.exit()  # Sulje peli
-        elif tapahtuma.type == pygame.KEYDOWN:         # Jos jotain nappia painettiin
-            if tapahtuma.key == pygame.K_w:             # W = liiku ylös
-                pass
-            elif tapahtuma.key == pygame.K_a:             # A = liiku vasemmalle
-                pelaaja.vasemmalle()
-            elif tapahtuma.key == pygame.K_s:             # S = liiku alas
-                pass
-            elif tapahtuma.key == pygame.K_d:             # D = liiku oikealle
-                pelaaja.oikealle()
-    
+
+    nappaimisto = pygame.key.get_pressed()  # Mitä nappeja on painettu?
+    if nappaimisto[pygame.K_a] == True:
+        pelaaja.vasemmalle()
+        pelaaja.animoi(2)
+    if nappaimisto[pygame.K_d] == True:
+        pelaaja.oikealle()
+        pelaaja.animoi(1)
+
+    naytto.fill([0,0,0])
+    naytto.blit(tausta, (0,0))
+    pelaaja.piirra(naytto)
     pygame.display.flip()
