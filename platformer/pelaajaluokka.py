@@ -4,9 +4,10 @@ class Pelaaja():
     def __init__(self):
         self.x = 640
         self.y = 465
-        self.nopeus = 2
+        self.nopeus = 5
         self.koko = 64
         self.laskin = 0
+        self.saako_nousta = True
         self.animaation_osa = 0
         self.spritesheet_nimi = "pelaaja.png"
         self.spritesheet = None
@@ -47,3 +48,9 @@ class Pelaaja():
 
     def vasemmalle(self):
         self.x -= self.nopeus
+    
+    def hyppaa(self):
+        self.y -= self.nopeus
+
+    def putoa(self):
+        self.y += self.nopeus
