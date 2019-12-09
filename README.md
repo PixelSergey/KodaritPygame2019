@@ -2,8 +2,8 @@
 
 Aja avaamalla PowerShell ikkuna ja kirjoittamalla `py <tiedostonimi>.py`
 
-![kuvani][kuvakaappaus.png]
-![pelaaja][pelaaja.png]
+![kuvani](kuvakaappaus.png)
+![pelaaja](pelaaja.png)
 
 
 (c) Kodarit.fi 2019
